@@ -1,21 +1,6 @@
-class vord {
+class vord extends LivingCreature {
     // uxaki sharjvum e aranc mahanalu
-    constructor(x, y, index) {
-        this.x = x
-        this.y = y
-        this.index = index
-       
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
+  
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -29,7 +14,7 @@ class vord {
         ];
     }
 
-    chooseCell(character) {
+    ChooseCell(character) {
         this.getNewCoordinates()
         var found = [];
         for (var i in this.directions) {
@@ -48,7 +33,7 @@ class vord {
 
     move() {
         
-        let emptyCells = this.chooseCell(0)
+        let emptyCells = this.ChooseCell(0)
         let newCell = random(emptyCells)
         if (newCell) {
             let newX = newCell[0]

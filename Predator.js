@@ -20,6 +20,7 @@ class Predator {
     }
     chooseCell(character) {
         this.getNewCoordinates()
+       
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
@@ -32,6 +33,7 @@ class Predator {
         }
         return found;
     }
+
     eat() {
         this.countEating++
         let grassesN = this.chooseCell(1)
