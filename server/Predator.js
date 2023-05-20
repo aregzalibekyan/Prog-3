@@ -1,4 +1,5 @@
-class Predator extends LivingCreature{
+var livingCreature = require("./livingcreature")
+module.exports = class Predator extends livingCreature{
     constructor(x, y,index) {
         super(x,y,index)
         this.countEating = 0

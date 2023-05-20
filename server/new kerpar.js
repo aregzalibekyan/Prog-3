@@ -1,4 +1,5 @@
-class bomb extends LivingCreature {
+var livingCreature = require("./livingcreature")
+module.exports = class bomb extends livingCreature {
     //
     // constructor(x, y) {
     //   this.x = x;

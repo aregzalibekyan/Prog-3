@@ -9,17 +9,17 @@ var bonuskerparArr = []
 
 var vordArr = []
 
-function setup() {
+// function setup() {
 
-    for (let d = 0; d < 50; d++) {
-        matrix[d] = [];
-        for (let g = 0; g < 70; g++) {
-            matrix[d][g] = Math.round(random(6))
-        }
-    }
-    frameRate(60);
-    createCanvas(matrix[0].length * side, matrix.length * side);
-    background('#acacac');
+//     for (let d = 0; d < 50; d++) {
+//         matrix[d] = [];
+//         for (let g = 0; g < 70; g++) {
+//             matrix[d][g] = Math.round(random(6))
+//         }
+//     }
+//     frameRate(60);
+//     createCanvas(matrix[0].length * side, matrix.length * side);
+//     background('#acacac');
     var gr = new Grass(1, 2, 1);
     var emptyCells = gr.chooseCell(0);
     console.log(emptyCells);
@@ -63,7 +63,7 @@ function setup() {
         }
 
     }
-}
+
 
 
 

@@ -1,7 +1,11 @@
-class vord extends LivingCreature {
-    // uxaki sharjvum e aranc mahanalu
-  
-    getNewCoordinates() {
+module.exports = class LivingCreature {
+    constructor(x, y, index) {
+        this.x = x;
+        this.y = y;
+        this.multiply = 0;
+        this.energy = 8;
+        this.counts = 0;
+        this.index = index;
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -13,45 +17,30 @@ class vord extends LivingCreature {
             [this.x + 1, this.y + 1]
         ];
     }
-
-    ChooseCell(character) {
-        this.getNewCoordinates()
+    chooseCell(ch) {
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
             var y = this.directions[i][1];
             if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    // ([x,y])
+                if (matrix[y][x] == ch) {
                     found.push(this.directions[i]);
                 }
             }
         }
         return found;
-
     }
 
-    move() {
-        
-        let emptyCells = this.ChooseCell(0)
-        let newCell = random(emptyCells)
-        if (newCell) {
-            let newX = newCell[0]
-            let newY = newCell[1]
-            matrix[this.y][this.x] = 0
-            matrix[newY][newX] = 5
-            this.x = newX
-            this.y = newY
-        }
-
+  mul() {
+    this.multiply++;
+    var newCell = random(this.chooseCell(0));
+    // console.log(newCell, this.multiply);
+    if (this.multiply >= 2 && newCell) {
+        var newGrass = new Grass(newCell[0], newCell[1], this.index);
+        grassArr.push(newGrass);
+        matrix[newCell[1]][newCell[0]] = 1;
+        this.multiply = 0;  
     }
-
-
-
+    
 }
-
-
-
-
-
-
+}

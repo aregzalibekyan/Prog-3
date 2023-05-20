@@ -1,4 +1,5 @@
-class GrassEater extends LivingCreature {
+var livingCreature = require("./livingcreature")
+module.exports =class GrassEater extends livingCreature {
     
     getNewCoordinates() {
         this.directions = [
