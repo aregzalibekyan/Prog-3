@@ -1,4 +1,5 @@
 var livingCreature = require("./livingcreature")
+var { random1 } = require("./random1")
 module.exports = class Predator extends livingCreature{
     constructor(x, y,index) {
         super(x,y,index)
@@ -43,7 +44,7 @@ module.exports = class Predator extends livingCreature{
         let grassesN = this.chooseCell(1)
         let grassesEaterN = this.chooseCell(2)
         let all = grassesN.concat(grassesEaterN)
-        let oneP = random(all)
+        let oneP = random1(all)
         if (oneP) {
             matrix[this.y][this.x] = 0
             matrix[oneP[1]][oneP[0]] = 3
@@ -72,7 +73,7 @@ module.exports = class Predator extends livingCreature{
     move() {
 
         let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
+        let newCell = random1(emptyCells)
         if (newCell) {
 
             let newX = newCell[0]

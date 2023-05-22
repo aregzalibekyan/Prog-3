@@ -1,6 +1,7 @@
 var livingCreature = require("./livingcreature")
-module.exports =class GrassEater extends livingCreature {
-    
+var { random1 } = require("./random1")
+module.exports = class GrassEater extends livingCreature {
+
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -16,7 +17,7 @@ module.exports =class GrassEater extends livingCreature {
 
     chooseCell(ch) {
         this.getNewCoordinates()
-        
+
 
         return super.chooseCell(ch);
         // var found = [];
@@ -33,14 +34,14 @@ module.exports =class GrassEater extends livingCreature {
 
     }
     mul() {
-        var newCell = random(this.chooseCell(0));
+        var newCell = random1(this.chooseCell(0));
         if (newCell) {
             var newGrassEater = new GrassEater(newCell[0], newCell[1], this.index);
             grassEaterArr.push(newGrassEater);
             matrix[newCell[1]][newCell[0]] = 2;
             this.energy = 8
         }
-       
+
 
 
     }
@@ -48,7 +49,7 @@ module.exports =class GrassEater extends livingCreature {
 
         this.energy--
         let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
+        let newCell = random1(emptyCells)
         if (newCell) {
 
             let newX = newCell[0]
@@ -67,7 +68,7 @@ module.exports =class GrassEater extends livingCreature {
     eat() {
 
         let foods = this.chooseCell(1)
-        let food = random(foods)
+        let food = random1(foods)
         if (food) {
             this.energy++
             matrix[this.y][this.x] = 0
@@ -92,22 +93,22 @@ module.exports =class GrassEater extends livingCreature {
         }
 
     }
- 
-            die() {
-                matrix[this.y][this.x] = 0;
-                for (var i in grassEaterArr) {
-                    if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                        grassEaterArr.splice(i, 1);
-                        break;
-                    }
-                }
-                if (this.index === 3) {
-                    for (var i in yellowArr) {
-                        if (this.x == yellowArr[i].x && this.y == yellowArr[i].y) {
-                            yellowArr.splice(i, 1);
-                            break;
-                        }
-                    }
+
+    die() {
+        matrix[this.y][this.x] = 0;
+        for (var i in grassEaterArr) {
+            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
+                grassEaterArr.splice(i, 1);
+                break;
+            }
+        }
+        if (this.index === 3) {
+            for (var i in yellowArr) {
+                if (this.x == yellowArr[i].x && this.y == yellowArr[i].y) {
+                    yellowArr.splice(i, 1);
+                    break;
                 }
             }
         }
+    }
+}
