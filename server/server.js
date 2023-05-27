@@ -1,4 +1,6 @@
+
 var express = require("express");
+
 var app = express();
 app.use(express.static("../client"));
 app.get("/", function (req, res) {
@@ -8,40 +10,44 @@ app.get("/", function (req, res) {
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-server.listen(3000, function () {
-    console.log("Game is running on port 3000");
+
+server.listen(4000, function () {
+    console.log("Game is running on port 4000");
 });
 var Grass = require("./class")
 var GrassEater = require("./grassEater")
 var vord = require("./vord")
 var Predator = require("./Predator")
 var bomb = require("./new kerpar")
-var { generateMatrix } = require("./functions")
- matrix = []
- vordArr = []
-  grassArr = []
+var { generateMatrix } = require("./functions");
+
+matrix = []
+vordArr = []
+grassArr = []
 grassEaterArr = []
- predatorArr = []
- newkerparArr = []
- bonuskerparArr = []
+predatorArr = []
+newkerparArr = []
+bonuskerparArr = []
+
 
 
 io.on('connection', function (socket) {
     // socket.emit("matrix", matrix) //uxarkelna
+    
 });
 generateMatrix()
 createObject()
 
 // generateMatrix()
 // console.log(matrix)
-io.sockets.emit("matrix",matrix)
+io.sockets.emit("matrix", matrix)
 
 var gr = new Grass(1, 2, 1);
-    var emptyCells = gr.chooseCell(0);
-    console.log(emptyCells);
+var emptyCells = gr.chooseCell(0);
+console.log(emptyCells);
 
-function createObject(){
-    
+function createObject() {
+
 
     for (var b = 0; b < matrix.length; b++) {
         for (var h = 0; h < matrix[b].length; h++) {
@@ -83,7 +89,20 @@ function createObject(){
 
     }
 }
-function game(){
+function main() {
+    var fs = require("fs")
+    statistic = {
+        grassCount : grassArr.length,
+        grassEaterCount : grassEaterArr.length,
+        newKerparCount: newkerparArr.length,
+        vordArr: vordArr.length,
+        predatorArr: predatorArr.length
+    }
+        fs.writeFileSync("Qanak.json", JSON.stringify( statistic))
+       
+    
+}
+function game() {
     for (var i in grassArr) {
         grassArr[i].mul()
     }
@@ -104,7 +123,12 @@ function game(){
 
     }
     io.sockets.emit("matrix", matrix)
+   
+    main()
 
 }
 
-setInterval(game,2000)
+setInterval(game, 2000)
+
+
+
