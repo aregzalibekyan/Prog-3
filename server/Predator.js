@@ -23,9 +23,9 @@ module.exports = class Predator extends livingCreature{
             [this.x + 1, this.y + 1]
         ];
     }
-    chooseCell(character) {
+    chooseCell(ch) {
         this.getNewCoordinates()
-       return super.chooseCell(character)
+       return super.chooseCell(ch)
         // var found = [];
         // for (var i in this.directions) {
         //     var x = this.directions[i][0];

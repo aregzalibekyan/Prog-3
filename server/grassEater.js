@@ -1,6 +1,11 @@
 var livingCreature = require("./livingcreature")
 var { random1 } = require("./random1")
+var time = [16,18]
 module.exports = class GrassEater extends livingCreature {
+    constructor(x,y,index){
+    super(x,y,index)
+    this.time1=random1(time)
+    }
 
     getNewCoordinates() {
         this.directions = [
@@ -83,7 +88,7 @@ module.exports = class GrassEater extends livingCreature {
                     break;
                 }
             }
-            if (this.energy >= 12) {
+            if (this.energy >= this.time1) {
                 this.mul()
             }
 

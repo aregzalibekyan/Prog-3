@@ -9,7 +9,7 @@ function generateMatrix() {
     for (let d = 0; d < 50; d++) {
         matrix[d] = [];
         for (let g = 0; g < 70; g++) {
-            matrix[d][g] = random(0, 5)
+            matrix[d][g] = random(0, 6)
         }
     }
 }
