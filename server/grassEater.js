@@ -107,13 +107,6 @@ module.exports = class GrassEater extends livingCreature {
                 break;
             }
         }
-        if (this.index === 3) {
-            for (var i in yellowArr) {
-                if (this.x == yellowArr[i].x && this.y == yellowArr[i].y) {
-                    yellowArr.splice(i, 1);
-                    break;
-                }
-            }
-        }
+        
     }
 }

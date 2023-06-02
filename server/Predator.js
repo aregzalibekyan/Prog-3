@@ -89,9 +89,9 @@ module.exports = class Predator extends livingCreature{
         
 
         matrix[this.y][this.x] = 0
-        for (var i in grassEaterArr) {
+        for (var i in predatorArr) {
             if (this.x == predatorArr[i].x && this.y == predatorArr[i].y) {
-                grassEaterArr.splice(i, 1);
+                predatorArr.splice(i, 1);
                 break;
             }
         }

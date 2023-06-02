@@ -13,9 +13,6 @@ function generateMatrix() {
         }
     }
 }
-function random1(arr){ //6
-    let num = Math.floor(Math.random() *arr.length)
-    return arr[num]
-}
+
 module.exports = { generateMatrix }
 // module.exports = { random1 }
