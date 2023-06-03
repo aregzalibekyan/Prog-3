@@ -131,7 +131,7 @@ function my_draw(matrix) {
                     fill("lime");
                 }
                 else if (matrix[y][x] == 6) {
-                    fill("blue");
+                    fill("#00FFFF");
                 }
                 rect(x * 10, y * 10, 10, 10);
 
@@ -169,7 +169,7 @@ function my_draw(matrix) {
                     fill("lime");
                 }
                 else if (matrix[y][x] == 6) {
-                    fill("blue");
+                    fill("#00FFFF");
                 }
                 rect(x * 10, y * 10, 10, 10);
             }
@@ -185,7 +185,7 @@ function my_draw(matrix) {
                     fill("#acacac");
                 }
                 else if (matrix[y][x] == 2 && lighting == 0) {
-                    fill("#FFFFE0");
+                    fill("#d1cd58");
                 }
                 else if (matrix[y][x] == 2 && lighting == 1) {
                     fill(something)
@@ -203,7 +203,7 @@ function my_draw(matrix) {
                     fill("lime");
                 }
                 else if (matrix[y][x] == 6) {
-                    fill("blue");
+                    fill("#00FFFF");
                 }
                 rect(x * 10, y * 10, 10, 10);
             }
@@ -240,7 +240,7 @@ function my_draw(matrix) {
                     fill("lime");
                 }
                 else if (matrix[y][x] == 6) {
-                    fill("blue");
+                    fill("#00FFFF");
                 }
                 rect(x * 10, y * 10, 10, 10);
             }

@@ -43,7 +43,7 @@ function handleVariable(value) {
     doSomethingWithVariable()
 }
 function doSomethingWithVariable() {
-    // console.log('Accessing myVariable:', time);
+    
 }
 
 function waitForVariable(callback) {
